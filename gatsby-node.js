@@ -1,16 +1,15 @@
 const path = require('path')
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
-    const createPage = boundActionCreators
+    const {createPage} = boundActionCreators;
     return new Promise((resolve, reject) => {
-        const kickShowcaseTemplate = path.resolve('src/components/kicks.js')
+        const kickShowcaseTemplate = path.resolve('src/templates/kicks.js')
         resolve(
             graphql`
             {
                 allContentfulKick {
                     edges {
                         node {
-                            id
                             slug
                         }
                     }

@@ -3,9 +3,7 @@ import PropTypes from 'prop-types'
 
 class Kicks extends Component {
   render() {
-    const {
-      name
-    } = this.props.data.contentfulKick
+    const { name } = this.props.data.contentfulKick;
     return (
       <section>
         <h3>{name}</h3>
@@ -21,8 +19,8 @@ Kicks.propTypes = {
 export default Kicks
 
 export const pageQuery = graphql`
-    query blogPostQuery($slug: String!) {
-        contentfulKick(slug: {eq: $slug!}) {
+    query kicksQuery($slug: String!) {
+        contentfulKick(slug: {eq: $slug}) {
             name
         }
     }
